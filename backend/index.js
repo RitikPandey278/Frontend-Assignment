@@ -6,11 +6,16 @@ const dotenv = require("dotenv");
 dotenv.config();
 const app = express();
 
-//Middleware setup
+//Middleware setup kr
 
 app.use(express.json());
 app.use(cors());
 
+//Root
+
+app.get("/", (req,res)=>{
+    res.send("Backend Running")
+});
 // Database ko connect krna
 
 mongoose.connect(process.env.MONGO_URI)
